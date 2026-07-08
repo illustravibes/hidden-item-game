@@ -32,11 +32,25 @@ class HiddenItemGame {
 
     return [];
 }
+
+
+    public function showPlayer(): void {
+        $player = $this->findPlayer();
+
+        if (!$player) {
+            echo "\n";
+            echo "Player location not found";
+            echo PHP_EOL;
+            return;
+        }
+
+        echo "\n";
+        echo "Player location: " . $player['row'] . ", " . $player['col'];
+        echo PHP_EOL;
+    }
 }
 
 $game = new HiddenItemGame();
 $game->render();
 
-$player = $game->findPlayer();
-
-print_r($player);
+$player = $game->showPlayer();
